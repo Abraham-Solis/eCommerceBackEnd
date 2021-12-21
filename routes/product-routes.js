@@ -97,7 +97,7 @@ router.put('/products/:id', (req, res) => {
 
 router.delete('/products/:id', async function (req, res) => {
   // delete one product by its `id` value
- const products = await Product.destroy({where:{id}})
+  const products = await Product.destroy({ where: { id } })
 res.status(400).json(err)
 })
 module.exports = router
