@@ -20,19 +20,20 @@ router.get('/tags/:id', async function ({ params: { id } }, res) => {
 
 router.post('/tags', async function (req, res) => {
   // create a new tag
-  const tags = await Category.create(req.body)
+  const tags = await Tag.create(req.body)
   res.status(200).json(tags)
 })
 
 router.put('/tags/:id', async function (req, res) => {
   // update a tag's name by its `id` value
-  const Tags = await Tag.update(req.body, { where: { id })
+  const tags = await Tag.update(req.body, { where: { id } })
+    res.status(200).json(tags)
 })
 
 router.delete('/tags/:id', async function (req, res) => {
   // delete on tag by its `id` value
-  const categories = await Category.destroy({ where: { id } })
-  res.status(200).json(categories)
+  const tags = await Tag.destroy({ where: { id } })
+  res.status(200).json(tags)
 })
 
 module.exports = router
