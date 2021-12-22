@@ -15,3 +15,6 @@ async function init() {
   await require('./config/connection.js').sync()
   app.listen(process.env.PORT || 3000)
 }
+
+
+init()
