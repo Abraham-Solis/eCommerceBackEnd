@@ -11,10 +11,10 @@ router.get('/tags', async function (req, res) {
 })
 
 
-router.get('/tags/:id', async function ({ params: { id } }, res) {
+router.get('/tags/:id', async function (req, res) {
   // find a single tag by its `id`
   // be sure to include its associated Product data
-  const tags = await Tag.findOne({ include: [Product] })
+  const tags = await Tag.findOne({ where: { id: req.params.id }, include: [Product] })
     res.json(tags)
 })
 
@@ -32,7 +32,7 @@ router.put('/tags/:id', async function (req, res) {
 
 router.delete('/tags/:id', async function (req, res) {
   // delete on tag by its `id` value
-  const tags = await Tag.destroy({ where: { id } })
+  const tags = await Tag.destroy({ where: { id: req.params.id } })
   res.sendStatus(200)
 })
 
