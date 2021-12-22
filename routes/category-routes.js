@@ -27,9 +27,9 @@ router.post('/categories', async function (req, res) {
   res.sendStatus(200)
 })
 
-router.put('/categories/:id', async function ({ params: { id } }, res)) {
+router.put('/categories/:id', async function ({ params: { id } }, res) {
   // update a category by its `id` value
-  const categories = await Category.update(req.body, {where: {id}})
+  const categories = await Category.update(req.body, { where: { id } })
   res.sendStatus(200)
 })
 
